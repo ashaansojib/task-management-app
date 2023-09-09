@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../auth/AuthProvider';
 import { Link } from 'react-router-dom';
+import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import AddTask from './AddTask';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -9,40 +11,32 @@ const Navbar = () => {
             .then(() => { })
             .catch(error => { })
     }
+    const navItem = <>
+        <button className="border-2 border-secondary/20 hover:border-primary hover:bg-primary rounded-xl h-10 w-10  grid place-content-center text-secondary hover:text-white transition-all">
+            <MagnifyingGlassIcon className="h-6 w-6" />
+        </button>
+        <button className="border-2 border-secondary/20 hover:border-primary hover:bg-primary rounded-xl h-10 w-10 grid place-content-center text-secondary hover:text-white transition-all">
+            <BellIcon className="h-6 w-6" />
+        </button>
+        <button onClick = {()=> document.getElementById('my_modal_4').showModal()} className="btn btn-primary btn-sm">Add Task</button>
+    </>
     return (
         <nav className="navbar border-b border-slate-300 justify-between">
+            <AddTask />
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                    <ul tabIndex={0} className="menu gap-2 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        {navItem}
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">Task Manager</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li tabIndex={0}>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
+                <ul className="menu gap-2 items-center menu-horizontal px-1">
+                    {navItem}
                 </ul>
             </div>
             <div className="dropdown dropdown-end">
