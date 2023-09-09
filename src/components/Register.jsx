@@ -39,6 +39,18 @@ const Register = () => {
                 console.log(error)
             })
         form.reset();
+        const addUser = {
+            name: name,
+            photo: photo,
+            email: email
+        }
+        fetch('https://task-manager-json-server-afgl.onrender.com/task-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(addUser)
+        })
     }
     return (
         <div className='lg:w-[450px] mx-auto lg:pt-6'>

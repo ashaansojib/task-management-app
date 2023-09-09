@@ -11,7 +11,7 @@ const AddTask = () => {
     
     const onSubmit = (data) => {
         reset();
-        fetch('https://my-json-server-two.vercel.app/tasks', {
+        fetch('https://task-manager-json-server-afgl.onrender.com/api/tasks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
