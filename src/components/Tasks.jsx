@@ -1,6 +1,6 @@
 import React from 'react';
-const Tasks = ({singleTask}) => {
-    const {title, description, date, priority } = singleTask;
+const Tasks = ({ singleTask }) => {
+    const { title, description, date, priority, asign } = singleTask;
 
     return (
         <div className="bg-secondary/10 rounded-md p-5 mb-2">
@@ -12,10 +12,8 @@ const Tasks = ({singleTask}) => {
                 {title}
             </h1>
             <p className="mb-3">{description}</p>
-            <p className="text-sm">Assigned to -</p>
-            <div className="flex justify-between mt-3">
-                <p>{date}</p>
-            </div>
+            <p className="text-sm">Assigned to - {asign}</p>
+            <p>{date}</p>
         </div>
     );
 };

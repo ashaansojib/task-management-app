@@ -31,15 +31,15 @@ const Login = () => {
         singInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
                 navigate(from, { replace: true });
+                const userInfo = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
                 fetch('https://task-manager-json-server-afgl.onrender.com/task-user', {
                     method: 'POST',
                     headers: {
-                        'Content-Type' : 'application/json'
+                        'content-type': 'application/json'
                     },
-                    body: JSON.stringify(loggedUser)
-                })
+                    body: JSON.stringify(userInfo)
+                });
             })
             .catch(error => {
                 setError(error.message);

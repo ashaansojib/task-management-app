@@ -27,6 +27,13 @@ const Register = () => {
                 updateUserInfo(name, photo)
                 navigate(from)
                 setSuccess('User Created Succefuly!!');
+                fetch('https://task-manager-json-server-afgl.onrender.com/task-user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                });
             })
             .catch(error => {
                 setSuccess("");
