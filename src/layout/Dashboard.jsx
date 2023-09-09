@@ -8,7 +8,6 @@ const Dashboard = () => {
         <div>
             <h1>{user?.displayName}</h1>
             <h2>this is Dashboard</h2>
-            <button onClick={handleLogOut}>Logout</button>
             <Link to="/">Home</Link>
         </div>
     );
