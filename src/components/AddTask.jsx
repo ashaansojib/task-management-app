@@ -21,12 +21,13 @@ const AddTask = () => {
     }
     return (
         <dialog id="my_modal_4" className="modal">
-            <div className="modal-box lg:w-[650px]">
+            <div className="modal-box pb-0 lg:w-[650px]">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='space-y-2'>
+                    <div className='space-y-1'>
                         <input className='inline-block w-full p-2 border border-teal-300' type="text" placeholder="Task Title" {...register("title", { required: true })} />
                         <textarea {...register("description", { required: true })} placeholder='Type Description' className='inline-block w-full p-2 border border-teal-300' name="description" id="" cols="10" rows="5"></textarea>
                         <input {...register("date", { required: true })} className='inline-block w-full p-2 border border-teal-300' type="date" name="date" id="" />
+                        <input {...register("asign", { required: true })} className='inline-block w-full p-2 border border-teal-300' type="text" name="asign" id="" placeholder='Asign Your Name' />
                         <select className='inline-block w-full p-2 border border-teal-300' {...register("priority")}>
                             <option value="High">High</option>
                             <option value="Medium">Medium</option>
