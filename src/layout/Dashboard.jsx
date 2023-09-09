@@ -3,7 +3,7 @@ import { AuthContext } from '../auth/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-    
+    const {user} = useContext(AuthContext)
     return (
         <div>
             <h1>{user?.displayName}</h1>
